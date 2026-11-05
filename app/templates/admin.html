@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Administration · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">Harbor stewardship</p><h1>Administration</h1>
+  <p class="lede">Welcome, {{ current_user.username }}. Your current admin role gives you access to this protected area.</p>
+  <p class="notice">This is the StudyHarbor admin area. Account role changes are managed by the project owner in the trusted local terminal.</p>
+  <a class="button" href="/dashboard">Back to your member space</a>
+</section>
+{% endblock %}
