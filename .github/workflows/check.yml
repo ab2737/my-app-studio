@@ -30,7 +30,7 @@ jobs:
       - name: Install Chromium system dependencies
         run: .venv/bin/python -m playwright install --with-deps chromium
       - name: Check the declared stage, including the browser
-        run: python3 studio.py check
+        run: python3 studio.py check --lesson APP-002
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -48,7 +48,7 @@ jobs:
       - name: Prepare the pinned environment and Chromium
         run: python studio.py setup
       - name: Check the declared stage, including the browser
-        run: python studio.py check
+        run: python studio.py check --lesson APP-002
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Create account · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="form-stack panel">
+  <p class="eyebrow">Welcome aboard</p><h1>Create account</h1>
+  <p>A small step toward your own StudyHarbor member space.</p>
+  {% if error %}<p role="alert">{{ error }}</p>{% endif %}
+  <form method="post" action="/signup">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label for="username">Username</label>
+    <input id="username" name="username" value="{{ username }}" autocomplete="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9_]{3,32}" aria-describedby="username-help" required>
+    <p id="username-help" class="muted">3–32 letters, numbers or underscores.</p>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="new-password" minlength="15" maxlength="128" aria-describedby="password-help" required>
+    <p id="password-help" class="muted">Use 15–128 characters. For this local project, use a throwaway passphrase.</p>
+    <button class="button" type="submit">Create account</button>
+  </form>
+  <p>Already have an account? <a href="/login">Log in</a>.</p>
+</section>
+{% endblock %}
