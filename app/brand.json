@@ -1,16 +1,20 @@
 {
-  "name": "Your Project",
-  "audience": "Not chosen yet",
-  "archetype": "Not chosen yet",
-  "promise": "Not chosen yet",
-  "headline": "A small idea. A real application.",
-  "summary": "This working page is your starting point. Give it a purpose and a brand, then build accounts and permissions one feature at a time.",
-  "voice": ["Not chosen yet"],
-  "design_direction": "Not chosen yet",
+  "name": "StudyHarbor",
+  "audience": "Students looking for a calm starting point before a study session",
+  "archetype": "Caregiver: a supportive guide offering clarity and encouragement",
+  "promise": "A calmer place to begin.",
+  "headline": "Find your focus. Make a little progress.",
+  "summary": "Step away from the noise. StudyHarbor is a welcoming home base for beginning your next study session, one manageable step at a time.",
+  "voice": [
+    "Calm",
+    "Encouraging",
+    "Clear"
+  ],
+  "design_direction": "A quiet harbor: deep navy, sea teal, warm white, generous spacing and an original sail mark",
   "palette": {
-    "ink": "#182C34",
-    "paper": "#F6F5EF",
-    "accent": "#285A50",
+    "ink": "#152F42",
+    "paper": "#F5F4EE",
+    "accent": "#17675F",
     "surface": "#FFFFFF"
   }
 }
