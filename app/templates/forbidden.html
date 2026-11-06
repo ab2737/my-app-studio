@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Admin access required · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">A protected part of the harbor</p><h1>Admin access required</h1>
+  <p class="lede">Your member account can use the member space. Administration is reserved for accounts with an admin role.</p>
+  <a class="button" href="/dashboard">Back to your member space</a>
+</section>
+{% endblock %}
