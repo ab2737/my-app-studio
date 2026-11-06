@@ -6,10 +6,10 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 ## Current stage
 
-- **Current feature:** APP-001.
-- **Status:** Neutral foundation; learner scope and decisions pending.
-- **Next step:** Confirm the local clone and SSH origin, run setup and try the page.
-- **Implementation marker:** `studio.json` starts at `implemented_through: 0`.
+- **Current feature:** APP-002.
+- **Status:** APP-002 implementation in progress; learner explanations remain pending.
+- **Next step:** Check the account flow and its protected private requests.
+- **Implementation marker:** `studio.json` now declares `implemented_through: 2`, after full cumulative APP-002 CI passed.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -23,10 +23,10 @@ Keep account actions honest about their unfinished state.
 
 | Decision | Agreement |
 |---|---|
-| Visitor and concrete use situation | Pending |
-| Reused IS117 brand, or name / promise / primary archetype | Pending |
-| One visible choice and visitor benefit | Pending |
-| Own issue / branch / PR | Pending |
+| Visitor and concrete use situation | AI-selected under delegated decisions: students beginning a study session who need a calm starting point. |
+| Reused IS117 brand, or name / promise / primary archetype | New identity: StudyHarbor. Promise: A calmer place to begin. Caregiver archetype: supportive, calm and clear. Selected by AI at learner request. |
+| One visible choice and visitor benefit | AI design rationale: navy/teal contrast, generous space and one prominent next action make the starting point clear. This is an AI rationale, not learner evidence or researched audience behavior. |
+| Own issue / branch / PR | [Issue #1](https://github.com/ab2737/my-app-studio/issues/1); `feat/app-001-studyharbor`; [PR #2](https://github.com/ab2737/my-app-studio/pull/2). |
 
 **Keep when:** the agreed identity is visible and usable at desktop/narrow widths;
 full foundation + APP-001 checks pass; AI review and the learner's actual check
@@ -41,9 +41,9 @@ helpers; keep data local. New accounts cannot choose their role.
 
 | Decision | Agreement |
 |---|---|
-| Expected public/private behavior and account flow | Pending |
-| Valid and rejected cases to demonstrate | Pending |
-| Own issue / branch / PR | Pending |
+| Expected public/private behavior and account flow | AI-selected under delegated scope: signup creates a member, then login opens the private dashboard. Anonymous HTML requests redirect to login; private API requests return 401. POST logout revokes the session and clears its cookie. |
+| Valid and rejected cases to demonstrate | Valid signup/login; duplicate and malformed usernames/passwords; role injection; wrong credentials; missing, wrong or cross-origin CSRF; copied session after logout; persistence after restart. Reuse prepared Argon2id, expiring signed JWT, HttpOnly/SameSite cookie and SQLite revocation. |
+| Own issue / branch / PR | [Issue #3](https://github.com/ab2737/my-app-studio/issues/3); `feat/app-002-accounts`; [PR #4](https://github.com/ab2737/my-app-studio/pull/4). |
 
 **Keep when:** the agreed forms/API work; duplicate/invalid signup and wrong
 credentials are rejected; passwords are hashed; authentication uses validated,
@@ -81,8 +81,8 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | Pending | Not run; learner contributions pending | Pending |
-| APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
+| APP-001 | [Issue #1](https://github.com/ab2737/my-app-studio/issues/1); [brand](app/brand.json), [homepage](app/templates/home.html), [logo](app/static/logo.svg), [layout](app/templates/base.html), [styles](app/static/site.css) | Local: Black/Pylint pass; 95 foundation tests pass, 2 platform skips, 1 Windows symbolic-link privilege failure; 2 real Chromium journeys pass. [Full APP-001 CI passed in both jobs](https://github.com/ab2737/my-app-studio/actions/runs/42084412296); learner contributions pending | [PR #2](https://github.com/ab2737/my-app-studio/pull/2); merge pending |
+| APP-002 | [Issue #3](https://github.com/ab2737/my-app-studio/issues/3); [routes](app/features/accounts.py), [signup](app/templates/signup.html), [login](app/templates/login.html), [dashboard](app/templates/dashboard.html) | 14 cumulative homepage/account contracts and both real Chromium journeys passed locally; Black/Pylint passed. The same local foundation symbolic-link privilege failure remains; [Full APP-002 CI passed in both jobs](https://github.com/ab2737/my-app-studio/actions/runs/42085546308). | Learner explanations and observations pending; [PR #4](https://github.com/ab2737/my-app-studio/pull/4), merge pending |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
 The instructor's reference branches show possible implementations. They do not
