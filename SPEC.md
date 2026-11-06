@@ -7,8 +7,8 @@ actual evidence; pending is a valid state. Keep explanations/help in
 ## Current stage
 
 - **Current feature:** APP-003.
-- **Status:** APP-003 implementation in progress; learner explanations remain pending.
-- **Next step:** Verify direct admin requests, current-role changes, and the cumulative browser journey.
+- **Status:** APP-003 implementation and local browser/API checks are complete; full remote CI and learner review remain pending.
+- **Next step:** Open the APP-003 PR, pass both full CI jobs, then advance the implementation marker.
 - **Implementation marker:** `studio.json` now declares `implemented_through: 2`, after full cumulative APP-002 CI passed.
 
 This repository owns application code. Server/proxy changes and production
@@ -66,7 +66,7 @@ permissions, including for an existing session after a role change.
 | Decision | Agreement |
 |---|---|
 | Intended admin-only result | AI-selected under delegated scope: a small Administration page and read-only /api/admin response identifying StudyHarbor administration. Anonymous: API 401, HTML redirect to login. Member: 403. Admin: 200. No public role-changing endpoint. |
-| Actual allowed/denied request evidence | Actual isolated browser/API preview returned anonymous 401, member 403 and admin 200. All 18 cumulative acceptance tests and both Chromium journeys pass locally, including existing-session promotion/demotion and stale role-claim rejection. Desktop/390px admin and denied layouts reviewed by AI. |
+| Actual allowed/denied request evidence | Actual isolated browser/API preview returned anonymous 401, member 403 and admin 200. All 18 cumulative acceptance tests and both Chromium journeys pass locally, including existing-session promotion/demotion and stale role-claim rejection. Desktop/390px admin and denied layouts reviewed by AI. Full remote APP-003 CI is pending because no PR is open yet. |
 | Own issue / branch / PR | [Issue #5](https://github.com/ab2737/my-app-studio/issues/5); `feat/app-003-roles`; PR pending. |
 
 **Keep when:** a direct request cannot bypass the role boundary, role changes
@@ -81,9 +81,9 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | [Issue #1](https://github.com/ab2737/my-app-studio/issues/1); [brand](app/brand.json), [homepage](app/templates/home.html), [logo](app/static/logo.svg), [layout](app/templates/base.html), [styles](app/static/site.css) | Local: Black/Pylint pass; 95 foundation tests pass, 2 platform skips, 1 Windows symbolic-link privilege failure; 2 real Chromium journeys pass. [Full APP-001 CI passed in both jobs](https://github.com/ab2737/my-app-studio/actions/runs/42084412296); learner contributions pending | [PR #2](https://github.com/ab2737/my-app-studio/pull/2); merge pending |
-| APP-002 | [Issue #3](https://github.com/ab2737/my-app-studio/issues/3); [routes](app/features/accounts.py), [signup](app/templates/signup.html), [login](app/templates/login.html), [dashboard](app/templates/dashboard.html) | 14 cumulative homepage/account contracts and both real Chromium journeys passed locally; Black/Pylint passed. The same local foundation symbolic-link privilege failure remains; [Full APP-002 CI passed in both jobs](https://github.com/ab2737/my-app-studio/actions/runs/42085546308). | Learner explanations and observations pending; [PR #4](https://github.com/ab2737/my-app-studio/pull/4), merge pending |
-| APP-003 | [Issue #5](https://github.com/ab2737/my-app-studio/issues/5); [routes](app/features/roles.py), [admin page](app/templates/admin.html), [denied page](app/templates/forbidden.html) | Black/Pylint, 18 contracts and 2 Chromium journeys pass locally. Same local foundation symbolic-link privilege failure; full CI pending. | Learner explanations/observations pending; PR pending |
+| APP-001 | [Issue #1](https://github.com/ab2737/my-app-studio/issues/1); [brand](app/brand.json), [homepage](app/templates/home.html), [logo](app/static/logo.svg), [layout](app/templates/base.html), [styles](app/static/site.css) | Local: Black/Pylint pass; 95 foundation tests pass, 2 platform skips, 1 Windows symbolic-link privilege failure; 2 real Chromium journeys pass. [Full APP-001 CI passed in both jobs](https://github.com/ab2737/my-app-studio/actions/runs/42084412296); learner contributions pending | [PR #2](https://github.com/ab2737/my-app-studio/pull/2); open, merge pending |
+| APP-002 | [Issue #3](https://github.com/ab2737/my-app-studio/issues/3); [routes](app/features/accounts.py), [signup](app/templates/signup.html), [login](app/templates/login.html), [dashboard](app/templates/dashboard.html) | 14 cumulative homepage/account contracts and both real Chromium journeys passed locally; Black/Pylint passed. The same local foundation symbolic-link privilege failure remains; [Full APP-002 CI passed in both jobs](https://github.com/ab2737/my-app-studio/actions/runs/42085546308). | Learner explanations and observations pending; [PR #4](https://github.com/ab2737/my-app-studio/pull/4) is open, merge pending |
+| APP-003 | [Issue #5](https://github.com/ab2737/my-app-studio/issues/5); [routes](app/features/roles.py), [admin page](app/templates/admin.html), [denied page](app/templates/forbidden.html) | Black/Pylint pass; 18 cumulative contracts and 2 Chromium journeys pass locally. The local foundation symlink test fails because Windows denies symlink creation (WinError 1314); full remote CI pending until its PR is open. | Learner explanations/observations pending; PR pending |
 
 The instructor's reference branches show possible implementations. They do not
 establish this repository's completion or the learner's own reasoning.
